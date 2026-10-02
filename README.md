@@ -1,3 +1,5 @@
+![TitanCore Platform Framework Archive — FRAMEWORK SOURCE · LEGACY SNAPSHOT](docs/images/portfolio-banner.svg)
+
 <div align="center">
 
 # TitanCore Platform Framework Archive
