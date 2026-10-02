@@ -8,7 +8,7 @@
 
 </div>
 
-> **Status: legacy snapshot; active maintenance and runtime readiness unverified.** The inspected root contains `TitanCore_V1.9/` and `Docs/`, with no root-level dependency manifest or README before this change.
+> **Status: legacy snapshot; active maintenance and runtime readiness unverified.** The inspected root contains `TitanCore_V1.9/` and `Docs/`. No root-level dependency manifest is present; this README is the portfolio landing page.
 
 ## Relationship to Titan Zero
 
