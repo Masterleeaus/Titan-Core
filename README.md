@@ -31,4 +31,4 @@ Review imported code provenance and applicable licenses before reuse or redistri
 
 ## Banner
 
-No project-specific banner has been verified in this repository.
+A checked-in project-specific banner is displayed above.
