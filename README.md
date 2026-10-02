@@ -8,6 +8,13 @@
 
 </div>
 
+## Product architecture and engineering highlights
+
+TitanCore is a Laravel platform module for shared AI infrastructure, platform services, and operational health across the Titan ecosystem.
+
+- **Architecture:** An nWidart module exposes TitanCore and TitanSDK namespaces, registers Laravel service providers, and uses manifests to declare Filament surfaces, health checks, routes, migrations, and repair recipes.
+- **Distinctive engineering:** A standout platform-engineering feature is manifest-driven health and safe-repair support, backed by tests for provider registration, capabilities, APIs, and operational services.
+
 > **Status: legacy snapshot; active maintenance and runtime readiness unverified.** The inspected root contains `TitanCore_V1.9/` and `Docs/`. No root-level dependency manifest is present; this README is the portfolio landing page.
 
 ## Relationship to Titan Zero
