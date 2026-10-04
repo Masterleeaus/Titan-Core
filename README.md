@@ -1,4 +1,4 @@
-![TitanCore Platform Framework Archive — FRAMEWORK SOURCE · LEGACY SNAPSHOT](docs/images/portfolio-banner.svg)
+![Titan-Core — legacy Laravel module snapshot with manifest-driven platform health and safe repair](docs/images/titan-core-banner.svg)
 
 <div align="center">
 
@@ -9,6 +9,10 @@
 </div>
 
 ## Product architecture and engineering highlights
+
+<p align="center">
+  <img src="docs/images/titan-core-architecture.svg" alt="Titan-Core map from TitanCore and TitanSDK namespaces through Laravel providers and manifests to health, Filament, routes, migrations, repair, and tests." width="100%" />
+</p>
 
 TitanCore is a Laravel platform module for shared AI infrastructure, platform services, and operational health across the Titan ecosystem.
 
