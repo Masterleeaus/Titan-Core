@@ -1,4 +1,4 @@
-![TitanCore Platform Framework Archive — FRAMEWORK SOURCE · LEGACY SNAPSHOT](docs/images/titancore-banner.svg)
+![Titan-Core — legacy Laravel module snapshot with manifest-driven platform health and safe repair](docs/images/titan-core-banner.svg)
 
 <div align="center">
 
@@ -10,6 +10,10 @@
 
 Titan-Core is a versioned Laravel platform-kernel snapshot for shared AI infrastructure, public SDK contracts, manifest-driven module integration, and operational health. It is the kind of platform work that makes multiple AI-enabled modules easier to compose, inspect, and evolve.
 
+<p align="center">
+  <img src="docs/images/titan-core-architecture.svg" alt="Titan-Core map from TitanCore and TitanSDK namespaces through Laravel providers and manifests to health, Filament, routes, migrations, repair, and tests." width="100%" />
+</p>
+
 ## What the framework implements
 
 - **Ordered AI orchestration:** `TitanCore_V1.9/AI/AIOrchestratorPipeline.php` runs guardrail, retrieval, tool execution, and citation stages in a defined order; a failed guardrail returns a blocked result before later stages run.
@@ -18,10 +22,6 @@ Titan-Core is a versioned Laravel platform-kernel snapshot for shared AI infrast
 - **Manifest-backed operations:** module metadata, capabilities, provider registration, health checks, repair conventions, and platform surfaces are discoverable through the versioned module structure.
 
 ## Architecture and code map
-
-<p align="center">
-  <img src="docs/images/titancore-architecture.svg" alt="TitanCore Platform Framework Archive flow from module contracts through providers, manifests, health checks, repair, and provenance review" width="100%" />
-</p>
 
 | Area | Responsibility |
 | --- | --- |
