@@ -42,6 +42,10 @@ The checked-in [testing guide](../TitanCore_V1.9/Docs/TESTING.md) requires a hos
 
 The archive is not a complete standalone app. These commands were inspected from the repository documentation and were not run in this task.
 
+## Repository hygiene
+
+See [REPOSITORY_HYGIENE.md](REPOSITORY_HYGIENE.md) and [repository-hygiene.json](repository-hygiene.json) for the evaluator, the two explicitly bounded deprecated alias collisions, and the retained blueprint archive. Run `node scripts/check-repository-hygiene.mjs` from the repository root; it fails on new collisions, stale inventory, or OS metadata.
+
 ## Evidence and limitations
 
 - Unit tests include `TitanCoreAIServiceTest.php`, provider/adapter tests, manifest validation, tool executor, vector store, and legacy compatibility coverage.
