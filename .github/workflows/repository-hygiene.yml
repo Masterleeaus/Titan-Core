@@ -1,0 +1,34 @@
+name: Repository Hygiene
+
+on:
+  pull_request:
+    branches: [main, master]
+    paths:
+      - "TitanCore_V1.9/**"
+      - "docs/repository-hygiene.json"
+      - "docs/REPOSITORY_HYGIENE.md"
+      - "scripts/check-repository-hygiene.mjs"
+      - ".github/workflows/repository-hygiene.yml"
+  push:
+    branches: [main, master]
+    paths:
+      - "TitanCore_V1.9/**"
+      - "docs/repository-hygiene.json"
+      - "docs/REPOSITORY_HYGIENE.md"
+      - "scripts/check-repository-hygiene.mjs"
+      - ".github/workflows/repository-hygiene.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Check case collisions and retained-artifact boundaries
+        run: node scripts/check-repository-hygiene.mjs
