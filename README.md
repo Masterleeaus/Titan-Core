@@ -2,48 +2,60 @@
 
 <div align="center">
 
-# TitanCore Platform Framework Archive
+# Titancore
 
-**An earlier TitanCore source snapshot and documentation repository.**
+**Platform Framework Archive**
 
 </div>
 
-## Product architecture and engineering highlights
+Titancore is a versioned Laravel/nWidart platform-kernel snapshot for shared AI infrastructure, public SDK contracts, manifest-driven module integration, and operational health. It is the kind of platform work that makes multiple AI-enabled modules easier to compose, inspect, and evolve.
+
+## What the framework implements
+
+- **Ordered AI orchestration:** `TitanCore_V1.9/AI/AIOrchestratorPipeline.php` runs guardrail, retrieval, tool execution, and citation stages in a defined order; a failed guardrail returns a blocked result before later stages run.
+- **Provider resilience:** `TitanCore_V1.9/Services/ProviderFailoverChain.php` tries ordered chat or embedding providers, handles configured retryable statuses, and returns the last meaningful failure when the chain cannot complete.
+- **Public/runtime separation:** `TitanCore_V1.9/TitanSDK/` exposes stable contracts, events, exceptions, facades, and manifests for consuming modules, while runtime/provider/controller implementation remains inside TitanCore.
+- **Manifest-backed operations:** module metadata, capabilities, provider registration, health checks, repair conventions, and platform surfaces are discoverable through the versioned module structure.
+
+## Architecture and code map
 
 <p align="center">
   <img src="docs/images/titancore-architecture.svg" alt="TitanCore Platform Framework Archive flow from module contracts through providers, manifests, health checks, repair, and provenance review" width="100%" />
 </p>
 
-TitanCore is a Laravel platform module for shared AI infrastructure, platform services, and operational health across the Titan ecosystem.
+| Area | Responsibility |
+| --- | --- |
+| `TitanCore_V1.9/AI/` | Orchestration, provider adapters, tool execution, permission gates, retrieval, vectors, and value objects. |
+| `TitanCore_V1.9/Services/` | Model gateway, provider failover, AI run logging, settings, and platform services. |
+| `TitanCore_V1.9/TitanSDK/` | Stable consumer-facing contracts, events, exceptions, facades, and manifests. |
+| `TitanCore_V1.9/Providers/`, `Routes/`, `Http/`, `Database/`, `Jobs/` | Laravel integration, persistence, APIs, and background work. |
+| `TitanCore_V1.9/Docs/` | Testing guidance, starter-kit material, scan reports, and runtime verification records. |
 
-- **Architecture:** An nWidart module exposes TitanCore and TitanSDK namespaces, registers Laravel service providers, and uses manifests to declare Filament surfaces, health checks, routes, migrations, and repair recipes.
-- **Distinctive engineering:** A standout platform-engineering feature is manifest-driven health and safe-repair support, backed by tests for provider registration, capabilities, APIs, and operational services.
+## Evidence and developer entry points
 
-> **Status: legacy snapshot; active maintenance and runtime readiness unverified.** The inspected root contains `TitanCore_V1.9/` and `Docs/`. No root-level dependency manifest is present; this README is the portfolio landing page.
+The versioned source includes unit and feature coverage for provider adapters, manifest validation, tool execution, vector stores, platform health, routes, and the SDK extraction boundary. The host-integration test guide uses:
 
-## Relationship to Titan Zero
+```bash
+php artisan test --testsuite=Unit
+php artisan test --testsuite=Feature
+```
 
-The current field-service platform is maintained in [Titan Zero Field Service Workforce](https://github.com/Masterleeaus/Titan-Zero-Field-Service-Workforce). This repository should be treated as an earlier codebase or source reference unless its history establishes a separate maintained product.
+The repository also has a dependency-free hygiene check:
 
-## Repository contents
+```bash
+node scripts/check-repository-hygiene.mjs
+```
 
-- `TitanCore_V1.9/` — versioned application source
-- `Docs/` — project documentation
+That check records the two explicitly bounded deprecated alias collisions and the retained blueprint ZIP, and fails on new collisions, stale inventory, or OS metadata.
 
-Inspect manifests and documentation inside those directories for the supported setup and test commands. They have not been independently verified in this review.
+## Why the separation matters
 
-## Portfolio classification
+TitanSDK gives consuming modules a stable integration surface while TitanCore retains runtime orchestration and provider internals. The trade-off is that a host application must supply Laravel, dependency installation, configuration, and the surrounding module ecosystem; the archive is not a standalone application.
 
-**Historical/source repository pending lineage review.** Compare its unique files, history, and licensing with `Titanzero`, `Titan-BOS`, `zero`, and the canonical workforce repo before deciding whether to archive or retire it.
+## Scope and provenance
 
-## Security and provenance
+Titancore is a versioned framework/source snapshot rather than a blanket production-readiness claim. The runtime verification audit records implemented, partial, and unverified behavior, including direct AI paths that still need consolidation around the central gateway.
 
-Review imported code provenance and applicable licenses before reuse or redistribution. Keep credentials and customer data out of version control.
+The repository preserves nested source, starter-kit material, scan reports, SDK code, and a lineage blueprint archive. See [docs/REPOSITORY_HYGIENE.md](docs/REPOSITORY_HYGIENE.md) for the exact retention boundary and retirement recommendations. Preserve existing license and attribution records before redistributing or presenting the snapshot as wholly original work.
 
-## Banner
-
-A checked-in project-specific banner is displayed above.
-
-## Engineering guide
-
-See [docs/PORTFOLIO.md](docs/PORTFOLIO.md) for the repository-specific code map, quickstart, evidence boundaries, and limitations.
+For the detailed architecture and evidence map, see [docs/PORTFOLIO.md](docs/PORTFOLIO.md).
