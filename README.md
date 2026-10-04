@@ -8,13 +8,62 @@
 
 </div>
 
+## Overview
+
 Titan-Core is a versioned Laravel platform-kernel snapshot for shared AI infrastructure, public SDK contracts, manifest-driven module integration, and operational health. It is the kind of platform work that makes multiple AI-enabled modules easier to compose, inspect, and evolve.
+
+
+## Measured evidence
+
+Titan-Core is best evaluated as a **platform-kernel snapshot with source-backed controls**, not as a standalone deployed application.
+
+| Evidence | Current repository fact | Reproduce / inspect |
+| --- | ---: | --- |
+| Approved case-collision exceptions | **2** deprecated compatibility alias pairs | `docs/repository-hygiene.json` |
+| Retained binary artifacts tracked explicitly | **1** lineage blueprint archive | `docs/repository-hygiene.json` |
+| Hygiene gate | fails on new case collisions, stale exception inventory, OS metadata, or missing retained artifacts | `node scripts/check-repository-hygiene.mjs` |
+| Ordered orchestration stages | guardrail → retrieval → tool execution → citation | `TitanCore_V1.9/AI/AIOrchestratorPipeline.php` |
+| Provider failover | ordered chat/embedding fallback on configured retryable failures | `TitanCore_V1.9/Services/ProviderFailoverChain.php` |
+| Host test lanes documented | Unit + Feature suites | `TitanCore_V1.9/Docs/TESTING.md` |
+| Standalone production readiness | **Not established** | host integration required |
+
+The repository's runtime audit is intentionally critical: it records direct AI paths that still bypass the central model gateway and identifies missing/consolidation work. Its conclusion is that Titan-Core should **not** be presented as one production-ready runtime authority.
+
+## What is new
+
+The technical signature is the separation of a **public SDK contract surface** from the **runtime AI/platform implementation**.
+
+```text
+Consuming module
+      ↓
+TitanSDK contracts / events / manifests
+      ↓
+TitanCore runtime
+      ↓
+Guardrail
+      ↓
+Retrieval
+      ↓
+Tool execution
+      ↓
+Citation
+      ↓
+Provider / storage / host services
+```
+
+Distinctive implementation choices:
+
+- **Ordered AI stages** make guardrail failure stop later execution rather than relying on prompt convention.
+- **Provider failover** is a runtime service rather than being duplicated in each consuming module.
+- **Public/runtime separation** gives modules stable contracts while internal providers/controllers can evolve.
+- **Manifest-driven module integration** makes capabilities and operational checks discoverable.
+- **Explicit runtime-audit gaps** keep partial and unverified behaviour visible instead of converting architecture intent into claims.
 
 <p align="center">
   <img src="docs/images/titan-core-architecture.svg" alt="Titan-Core map from TitanCore and TitanSDK namespaces through Laravel providers and manifests to health, Filament, routes, migrations, repair, and tests." width="100%" />
 </p>
 
-## What the framework implements
+## Verified capabilities
 
 - **Ordered AI orchestration:** `TitanCore_V1.9/AI/AIOrchestratorPipeline.php` runs guardrail, retrieval, tool execution, and citation stages in a defined order; a failed guardrail returns a blocked result before later stages run.
 - **Provider resilience:** `TitanCore_V1.9/Services/ProviderFailoverChain.php` tries ordered chat or embedding providers, handles configured retryable statuses, and returns the last meaningful failure when the chain cannot complete.
@@ -31,7 +80,7 @@ Titan-Core is a versioned Laravel platform-kernel snapshot for shared AI infrast
 | `TitanCore_V1.9/Providers/`, `Routes/`, `Http/`, `Database/`, `Jobs/` | Laravel integration, persistence, APIs, and background work. |
 | `TitanCore_V1.9/Docs/` | Testing guidance, starter-kit material, scan reports, and runtime verification records. |
 
-## Evidence and developer entry points
+## Quick start and verification
 
 The versioned source includes unit and feature coverage for provider adapters, manifest validation, tool execution, vector stores, platform health, routes, and the SDK extraction boundary. The host-integration test guide uses:
 
