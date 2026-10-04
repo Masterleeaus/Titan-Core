@@ -2,13 +2,13 @@
 
 <div align="center">
 
-# Titancore
+# Titan-Core — TitanCore Platform Framework Archive
 
-**Platform Framework Archive**
+**Platform framework for shared AI infrastructure**
 
 </div>
 
-Titancore is a versioned Laravel/nWidart platform-kernel snapshot for shared AI infrastructure, public SDK contracts, manifest-driven module integration, and operational health. It is the kind of platform work that makes multiple AI-enabled modules easier to compose, inspect, and evolve.
+Titan-Core is a versioned Laravel platform-kernel snapshot for shared AI infrastructure, public SDK contracts, manifest-driven module integration, and operational health. It is the kind of platform work that makes multiple AI-enabled modules easier to compose, inspect, and evolve.
 
 ## What the framework implements
 
@@ -54,7 +54,7 @@ TitanSDK gives consuming modules a stable integration surface while TitanCore re
 
 ## Scope and provenance
 
-Titancore is a versioned framework/source snapshot rather than a blanket production-readiness claim. The runtime verification audit records implemented, partial, and unverified behavior, including direct AI paths that still need consolidation around the central gateway.
+Titan-Core is a versioned framework/source snapshot rather than a blanket production-readiness claim. The runtime verification audit records implemented, partial, and unverified behavior, including direct AI paths that still need consolidation around the central gateway.
 
 The repository preserves nested source, starter-kit material, scan reports, SDK code, and a lineage blueprint archive. See [docs/REPOSITORY_HYGIENE.md](docs/REPOSITORY_HYGIENE.md) for the exact retention boundary and retirement recommendations. Preserve existing license and attribution records before redistributing or presenting the snapshot as wholly original work.
 
