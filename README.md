@@ -1,10 +1,10 @@
-![Titan-Core — legacy Laravel module snapshot with manifest-driven platform health and safe repair](docs/images/titan-core-banner.svg)
+![Titan-Core — TitanCore platform kernel for shared AI infrastructure](docs/images/titan-core-banner.svg)
 
 <div align="center">
 
-# Titan-Core — TitanCore Platform Framework Archive
+# Titan-Core
 
-**Platform framework for shared AI infrastructure**
+**TitanCore platform kernel for shared AI infrastructure**
 
 </div>
 
