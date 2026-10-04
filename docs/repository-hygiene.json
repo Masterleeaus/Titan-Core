@@ -1,0 +1,33 @@
+{
+  "approved_case_collisions": [
+    {
+      "paths": [
+        "TitanCore_V1.9/Services/KBHealthService.php",
+        "TitanCore_V1.9/Services/KbHealthService.php"
+      ],
+      "reason": "The uppercase file is a deprecated backwards-compatible alias; current internal imports use KbHealthService.",
+      "recommendation": "Remove only after downstream host compatibility is tested or the alias is relocated through a verified classmap-safe compatibility path."
+    },
+    {
+      "paths": [
+        "TitanCore_V1.9/Services/KBPublishService.php",
+        "TitanCore_V1.9/Services/KbPublishService.php"
+      ],
+      "reason": "The uppercase file is a deprecated backwards-compatible alias; current internal imports use KbPublishService.",
+      "recommendation": "Remove only after downstream host compatibility is tested or the alias is relocated through a verified classmap-safe compatibility path."
+    }
+  ],
+  "retained_artifacts": [
+    {
+      "path": "TitanCore_V1.9/Blueprints/AIControlledModuleBlueprint_PASS17/Titan_AI_Controlled_Module_Blueprint_UI_Added_PASS17.zip",
+      "classification": "lineage blueprint archive",
+      "runtime_reference": "No runtime import was established; the archive is recorded in TitanCore_V1.9/MANIFEST.sha256.",
+      "decision": "Retain pending provenance/license confirmation and comparison against the maintained source tree.",
+      "recommendation": "Move outside the active runtime tree or remove only after provenance, attribution, and reachability are documented."
+    }
+  ],
+  "metadata_policy": [
+    ".DS_Store",
+    "Thumbs.db"
+  ]
+}
